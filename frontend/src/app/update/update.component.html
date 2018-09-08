@@ -1,0 +1,53 @@
+<div class="row">
+<div class="col-md-12">
+
+    <div class="panel-body">
+      <form [formGroup]="angForm" novalidate>
+<table class="table table-hover table-responsive table-bordered">
+    <tr>
+        <td>NPM</td>
+        <td>
+          <input
+                formControlName="NPM"
+                name="name" type="text"
+                class="form-control" required
+                maxlength="8"
+                Name="npm" #npm />
+        
+            <div
+            *ngIf="angForm.controls['npm'].touched && angForm.controls['npm'].hasError('required')"
+                class="alert alert-danger">
+                NPM is required.
+            </div>
+       </td>
+    </tr>
+
+    <tr>
+        <td>Nama</td>
+        <td>
+          <input
+                formControlName="nama"
+                name="nama" type="text"
+                class="form-control" required
+                Name="nama" #nama />
+            <div
+            *ngIf="angForm.controls['nama'].touched && angForm.controls['nama'].hasError('required')"
+                class="alert alert-danger">
+                Name is required.
+            </div>
+
+       </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button (click)="updateMahasiswa(npm.value, nama.value)" class="btn btn-primary" type="submit">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+            </button>
+        </td>
+    </tr>
+      </table>
+      </form>
+    </div>
+  </div>
+</div>

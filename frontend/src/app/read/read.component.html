@@ -1,0 +1,23 @@
+<div class="col-md-12">
+    <a routerLink="../create" class='btn btn-success pull-right'>
+        <span class='glyphicon glyphicon-plus'></span> Create Mahasiswa
+    </a>
+     <router-outlet></router-outlet>
+</div>
+<br><br><br>
+<table class='table table-hover table-responsive table-bordered'>
+    <tr>
+      <th>NPM</th>
+      <th>Nama</th>
+      <th>Action</th>
+    </tr>
+
+    <tr *ngFor="let mhs of mahasiswa">
+        <td>{{ mhs.npm }}</td>
+        <td>{{ mhs.nama }}</td>
+        <td><a [routerLink]="['/update', mhs.id]" class='btn btn-info m-r-5px'><span class='glyphicon glyphicon-edit'></span> Edit</a>
+        <button (click)="deleteMahasiswa(mhs.id)"  class='btn btn-danger m-r-5px'>
+        <span class='glyphicon glyphicon-remove'></span>Delete</button></td>
+    </tr>
+
+</table>
